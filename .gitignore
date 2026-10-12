@@ -1,0 +1,15 @@
+**/bin/
+**/obj/
+.vs/
+.idea/
+__pycache__/
+*.pyc
+dist/
+*.zip
+*.dll
+*.pdb
+*.log
+*.dmp
+.state/
+interop/
+payload/
