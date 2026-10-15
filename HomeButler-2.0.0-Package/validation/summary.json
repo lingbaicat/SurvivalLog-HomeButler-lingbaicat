@@ -1,0 +1,9 @@
+{
+  "release": "2.0.0",
+  "installerAssertions": 83,
+  "passed": true,
+  "navigationCases": 8,
+  "inlineSimulationPassed": true,
+  "directReferences": 138,
+  "inGame": "Maintainer confirmed features on existing installation. Full fresh bundle not repeated."
+}

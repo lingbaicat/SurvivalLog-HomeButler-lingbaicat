@@ -1,0 +1,66 @@
+[
+  {
+    "Test": "Setup.ps1 Install exit 1",
+    "Passed": true
+  },
+  {
+    "Test": "Unsupported right-state structure blocked before DLL changes",
+    "Passed": true
+  },
+  {
+    "Test": "Setup.ps1 Install exit 0",
+    "Passed": true
+  },
+  {
+    "Test": "Setup.ps1 Check exit 0",
+    "Passed": true
+  },
+  {
+    "Test": "Embedded JS exactly equals release source",
+    "Passed": true
+  },
+  {
+    "Test": "DLL startup transformation is byte-stable after installer",
+    "Passed": true
+  },
+  {
+    "Test": "Exactly one editor script",
+    "Passed": true
+  },
+  {
+    "Test": "Exactly one reactive state bridge",
+    "Passed": true
+  },
+  {
+    "Test": "Launch.ps1 Safe exit 0",
+    "Passed": true
+  },
+  {
+    "Test": "Safe mode strips script and bridge even from pre-existing standalone patch",
+    "Passed": true
+  },
+  {
+    "Test": "Launch.ps1 Restore exit 0",
+    "Passed": true
+  },
+  {
+    "Test": "Safe-mode restore recovers exact current page",
+    "Passed": true
+  },
+  {
+    "Test": "Setup.ps1 Check exit 0",
+    "Passed": true
+  },
+  {
+    "Test": "Setup.ps1 Uninstall exit 0",
+    "Passed": true
+  },
+  {
+    "Test": "Upgrade uninstall restores standalone page exactly",
+    "Passed": true
+  },
+  {
+    "Test": "Personal container labels unchanged after install/safe/restore/uninstall",
+    "Passed": true
+  }
+]

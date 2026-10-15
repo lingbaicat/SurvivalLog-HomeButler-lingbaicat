@@ -1,0 +1,22 @@
+[
+  {
+    "Plugin": "BaseButler.ContainerInlineEditor.dll",
+    "Checked": 4,
+    "Missing": []
+  },
+  {
+    "Plugin": "BaseButler.ContainerNavigation.dll",
+    "Checked": 5,
+    "Missing": []
+  },
+  {
+    "Plugin": "BaseButler.HomeAccess.dll",
+    "Checked": 85,
+    "Missing": []
+  },
+  {
+    "Plugin": "BaseButler.NativeCompatibility.dll",
+    "Checked": 44,
+    "Missing": []
+  }
+]

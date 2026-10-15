@@ -1,47 +1,56 @@
-# Survival Log 居家管家兼容整合包
+# Survival Log HomeButler 2.0.0 · 第二版（离线整合）
 
-**HomeButler 1.0.0 · Steam Windows x64 · 游戏 1.1.18385**
+适配 Steam Windows x64，游戏 **1.1.18599 / Unity 6000.2.7f2**。原始 BaseButler 作者 lingxiangtingsheng，整合维护 lingbaicat。
 
-由 [lingbaicat](https://github.com/lingbaicat) 维护的 BaseButler 授权适配整合包，提供家中容器访问、取料与堆叠辅助，并修复新版游戏中背包面板偏移、容器标签撑宽和切换后不可见的问题。
+## 三步安装
+1. 完整退出游戏，将 ZIP 内全部文件解压到 `SurvivalLog.exe` 所在目录，不要在压缩包内运行。
+2. 双击 `Install.cmd`，确认显示安装成功。保留 `HomeButler-2.0.0-Package` 文件夹，它保存卸载备份。
+3. 使用 `Launch.cmd` 启动。首次启动会在本机生成 IL2CPP 接口，可能需要几分钟；包内已提供所需离线组件，无需安装 .NET SDK。
 
-[下载玩家安装包](https://github.com/lingbaicat/SurvivalLog-HomeButler-lingbaicat/releases/latest) · [安装与卸载](docs/INSTALL.md) · [配置与按键](docs/CONFIGURATION.md) · [常见问题](docs/TROUBLESHOOTING.md) · [反馈问题](https://github.com/lingbaicat/SurvivalLog-HomeButler-lingbaicat/issues)
+## 新功能怎么用
+- 打开家中容器，或在背包左侧标签切换至容器，上方显示当前容器编辑栏。点“修改”，填写名称和序号后点“保存”。中文可直接输入；Esc 或“取消”放弃未保存修改。输入法选字的 Enter 不应触发保存。
+- 名称留空恢复默认名；序号留空取消数字优先级，允许 -9999 至 9999 的整数。名称最多 40 个 UTF-16 字符单位。
+- 右下角“容器命名 / 排序”仍提供批量管理，以及原版顺序、自然名称排序、数字序号排序。编辑单个容器不会自动改变全局排序模式。
+- 自定义排序时 A/D 按标签展示顺序切换；背包等固定标签保留原有位置。编辑期间暂时拦截游戏快捷键与其他点击，保存或取消后恢复。
+- 整理物资时右侧标题显示 `[序号] 自定义名称`，对应右侧实际打开的容器，与左侧浏览的容器独立。未设置的名称/序号不凭空生成。
+- 名称与序号按存档独立保存于 `BepInEx/config/HomeButler-containers/`；卸载不删除这份数据。
+- 保留既有家中容器访问、堆叠/拆分、背包布局和横向滚动功能。本版不承诺外出跨场景远程仓库功能，新装默认关闭它。
 
-## 下载和安装
+## 从第一版或测试补丁升级
+退出游戏后完整解压本版、运行 Install.cmd。支持包内清单列出的旧版 DLL，包括已知 1.0.0 / 1.0.1 / 1.1.0 / 1.2.3 组合及容器编辑 1.0.0、1.1.0、1.1.1；未知改版或重复 DLL 会拒绝覆盖。安装器不删除个人配置和名称数据。
 
-请在 Releases 的 **Assets** 中下载 `SurvivalLog-HomeButler-1.0.0-Game1.1.18385-win-x64.zip`。GitHub 自动提供的 **Source code** 是维护文件，不是玩家安装包。
+如果之前启用了安全模式，先在对应旧包中运行 RestoreMods.cmd。升级后只使用本版根目录入口，不要运行旧包卸载器。保留旧包文件夹直到确认不再需要回滚。
 
-1. 退出游戏，在 Steam 中选择“管理 → 浏览本地文件”。
-2. 将安装包内全部内容解压到 `SurvivalLog.exe` 所在目录，不要再套一层文件夹。
-3. 双击 `Install.cmd`，看到 `Installed successfully` 后，从 Steam 启动游戏。
+## 入口文件
+| 文件 | 用途 |
+| --- | --- |
+| Install.cmd | 安装或校验重复安装；安装前统一备份插件、页面及必要配置 |
+| Check.cmd | 只读校验包与游戏结构，不安装、不启动游戏 |
+| Launch.cmd | 检查受测游戏指纹与安装状态，通过后启动；不支持的构建进入安全模式 |
+| SafeMode.cmd | 关闭 Doorstop 模组加载、尽可能恢复页面并启动游戏，用于对照排查 |
+| RestoreMods.cmd | 恢复安全模式前的加载设置及未被更新的页面，不启动游戏 |
+| Uninstall.cmd | 撤销本包安装；升级安装会恢复安装前旧模组，不等于删除所有历史模组 |
+| ViewLog.cmd | 用记事本打开 BepInEx/LogOutput.log，便于复制反馈 |
 
-首次启动需要联网生成 BepInEx 接口，可能等待数分钟。安装后保留 `HomeButler-Package` 文件夹，其中保存卸载恢复记录。
+直接从 Steam 启动不会先执行 Launch.cmd 的兼容检查。安全模式一旦关闭加载器，直接 Steam 启动仍保持停用状态，直到恢复。安全模式下要先 RestoreMods，再检查、安装或卸载。
 
-## 主要功能
+## 故障处理与边界
+- 游戏更新：未知构建不自动视为兼容。Launch.cmd 校验版本、UnityPlayer.dll 与 GameAssembly.dll；基础库仅适配 Unity 6000.2.7。请等待更新适配，不要直接用旧页覆盖新游戏页。
+- 文件冲突：安装器会先检查包完整性、页面结构、重复插件、目标路径与旧 DLL 白名单。校验失败不应强行覆盖；保留报错与日志。页面已被游戏/其他模组改动时，卸载会拒绝用旧备份覆盖。
+- 控制台：新装默认关闭独立日志控制台、保留文件日志；升级保留已有配置。曾有选中控制台文字导致退出的反馈，关闭控制台是规避措施，不宣称已查明所有闪退根因。
+- 闪退：记录游戏版本、操作步骤和复现频率，用 SafeMode.cmd 做对照。日志可能包含本机路径，公开前可隐去个人信息。安全模式停用本目录所有 BepInEx 插件，不只本整合包。
+- 损坏/中断：保留包目录及 `.state` 备份。若提示安装中断，先运行本版 Uninstall.cmd 恢复，再安装。未知 DLL、被更改的备份或链接路径会停止，避免误覆盖。
+- 保存失败：不要把“正在保存”视为成功；只有收到保存确认才显示“已保存”。包不会修改游戏存档内容，容器标签是独立配置。
 
-- 家中背包、货舱及适用容器显示储物来源标签，减少来回开柜。
-- 标签栏可横向滚动；单背包、双容器和大容量容器按当前尺寸居中。
-- 切换后选中标签保持可见，隐藏标签的拖放区域随滚动更新。
-- 保留材料堆叠、自动合并、后台取料和工作台按量取料兼容功能。
-- `Shift + 右键` 拆半，`Tab + 右键` 转移一个；燃料来源用 `PageUp / PageDown` 切换。
+## 验证与许可
+维护者已确认容器命名/序号持久化、A/D 排序、中文输入、右侧名称序号实机有效。整合安装器另有隔离目录回归验证，详见 docs/VALIDATION.md。整包从零安装后的完整实机流程、各种输入法及未来游戏版本未全面验证。
 
-## 适配范围和限制
+离线包包括 BepInEx、Doorstop、.NET 运行时与 Unity 基础库；不含游戏 exe、GameAssembly、HotUpdate、游戏 HTML、生成的 interop、存档、玩家命名文件或运行日志。首次接口生成仍需要用户已安装的合法游戏资源。
 
-仅适配 **Steam Windows x64 / Survival Log 1.1.18385** 的已测试构建，安装器同时校验关键文件指纹。不同版本、不同加载器或已被其他模组修改的界面可能无法叠加安装。
+原作：https://www.nexusmods.com/survivallog/mods/4
+仓库：https://github.com/lingbaicat/SurvivalLog-HomeButler-lingbaicat
+沿用维护者此前确认的原作者授权记录；署名、授权范围和组件许可见 docs/AUTHORIZATION.md、LICENSE.md、THIRD-PARTY-NOTICES.md、licenses/。公开源码不表示原作或全部组件统一重新授权。包内提供扩展源码，原 BaseButler 定制二进制不具备完整源码构建链。
 
-`Q` 丢弃“只丢一个”在本定制版本中未可靠生效，请按游戏实际提示操作。材料规则可能将命中物品的堆叠上限设为 5；可在配置中调整。卸载不会回退游玩产生的存档变化。
 
-游戏更新前先卸载本包；更新后等待对应适配版。安装器的版本检查不会在每次启动游戏时自动停用旧插件。
-
-## 版本与验证
-
-包版本号与原 BaseButler 版本独立。本包包含 BaseButler 定制适配版 2.0.12、NativeCompatibility 2.0.5、HomeAccess 1.0.6，以及 BepInEx 6.0.0-be.788。
-
-维护者已确认取得原作者授权，并已在多台电脑上测试通过。离线布局、接口检查及安装器测试记录见 [验证说明](docs/VALIDATION.md)。多机测试未提供逐机环境表，因此不扩大声明为所有系统或所有游戏版本均兼容。
-
-## 署名和许可
-
-BaseButler 原作者：[lingxiangtingsheng](https://www.nexusmods.com/survivallog/mods/4)。本项目由 lingbaicat 维护适配与发布，不代表原作者或游戏官方发布。
-
-本项目免费发布。原作、兼容插件、框架和第三方依赖分别适用各自权利与许可；本仓库公开两个兼容插件源码，未提供 BaseButler 定制二进制的完整源码构建链，**不声明整个整合包为完整开源项目**。详见 [授权与致谢](docs/AUTHORIZATION.md) 和 [第三方说明](THIRD-PARTY-NOTICES.md)。
-
-开发与文档整理使用了 AI 辅助；功能测试由维护者完成。提交问题时请提供游戏版本、包版本、复现步骤及经过隐私检查的日志。
+## 仓库维护资料说明
+本源码归档不含运行时 payload，不能直接安装。玩家请下载 Release 完整离线 ZIP。维护者可先解压正式离线包，再将源码改动合入对应 Package 目录，运行 tools/repack.py 校验并重建包。BaseButler 原定制二进制的完整源码构建链未提供。

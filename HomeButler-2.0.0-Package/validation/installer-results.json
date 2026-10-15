@@ -1,0 +1,270 @@
+[
+  {
+    "Test": "Setup.ps1 Check exit=0",
+    "Passed": true
+  },
+  {
+    "Test": "Check does not install files",
+    "Passed": true
+  },
+  {
+    "Test": "Setup.ps1 Install exit=0",
+    "Passed": true
+  },
+  {
+    "Test": "Plugin installed: BaseButler.ContainerInlineEditor.dll",
+    "Passed": true
+  },
+  {
+    "Test": "Plugin installed: BaseButler.ContainerNavigation.dll",
+    "Passed": true
+  },
+  {
+    "Test": "Plugin installed: BaseButler.dll",
+    "Passed": true
+  },
+  {
+    "Test": "Plugin installed: BaseButler.HomeAccess.dll",
+    "Passed": true
+  },
+  {
+    "Test": "Plugin installed: BaseButler.NativeCompatibility.dll",
+    "Passed": true
+  },
+  {
+    "Test": "Catalog UI installed: BackpackUI.html",
+    "Passed": true
+  },
+  {
+    "Test": "Catalog UI installed: Cooking.html",
+    "Passed": true
+  },
+  {
+    "Test": "Catalog UI installed: ToolTable.html",
+    "Passed": true
+  },
+  {
+    "Test": "Catalog UI installed: BrewPanel.html",
+    "Passed": true
+  },
+  {
+    "Test": "Catalog UI installed: Heater.html",
+    "Passed": true
+  },
+  {
+    "Test": "Catalog UI installed: FuelGenerator.html",
+    "Passed": true
+  },
+  {
+    "Test": "Catalog UI installed: RatCage.html",
+    "Passed": true
+  },
+  {
+    "Test": "Catalog UI installed: Compressor.html",
+    "Passed": true
+  },
+  {
+    "Test": "Catalog UI installed: Shredder.html",
+    "Passed": true
+  },
+  {
+    "Test": "Catalog UI installed: TradeUI.html",
+    "Passed": true
+  },
+  {
+    "Test": "Offline source is local archive",
+    "Passed": true
+  },
+  {
+    "Test": "Setup.ps1 Install exit=0",
+    "Passed": true
+  },
+  {
+    "Test": "Launch.ps1 Launch exit=0",
+    "Passed": true
+  },
+  {
+    "Test": "Known build retains mod mode",
+    "Passed": true
+  },
+  {
+    "Test": "Launch.ps1 Safe exit=0",
+    "Passed": true
+  },
+  {
+    "Test": "Safe mode disables loader",
+    "Passed": true
+  },
+  {
+    "Test": "Safe mode restores clean page: BackpackUI.html",
+    "Passed": true
+  },
+  {
+    "Test": "Safe mode restores clean page: Cooking.html",
+    "Passed": true
+  },
+  {
+    "Test": "Safe mode restores clean page: ToolTable.html",
+    "Passed": true
+  },
+  {
+    "Test": "Safe mode restores clean page: BrewPanel.html",
+    "Passed": true
+  },
+  {
+    "Test": "Safe mode restores clean page: Heater.html",
+    "Passed": true
+  },
+  {
+    "Test": "Safe mode restores clean page: FuelGenerator.html",
+    "Passed": true
+  },
+  {
+    "Test": "Safe mode restores clean page: RatCage.html",
+    "Passed": true
+  },
+  {
+    "Test": "Safe mode restores clean page: Compressor.html",
+    "Passed": true
+  },
+  {
+    "Test": "Safe mode restores clean page: Shredder.html",
+    "Passed": true
+  },
+  {
+    "Test": "Safe mode restores clean page: TradeUI.html",
+    "Passed": true
+  },
+  {
+    "Test": "Launch.ps1 Safe exit=0",
+    "Passed": true
+  },
+  {
+    "Test": "Launch.ps1 Restore exit=0",
+    "Passed": true
+  },
+  {
+    "Test": "Restore keeps exact original Doorstop settings",
+    "Passed": true
+  },
+  {
+    "Test": "Setup.ps1 Check exit=0",
+    "Passed": true
+  },
+  {
+    "Test": "Launch.ps1 Launch exit=0",
+    "Passed": true
+  },
+  {
+    "Test": "Unknown game update automatically enters safe mode",
+    "Passed": true
+  },
+  {
+    "Test": "Launch.ps1 Restore exit=0",
+    "Passed": true
+  },
+  {
+    "Test": "Restore preserves newly updated page",
+    "Passed": true
+  },
+  {
+    "Test": "Patched-page fixture backup found",
+    "Passed": true
+  },
+  {
+    "Test": "Setup.ps1 Check exit=0",
+    "Passed": true
+  },
+  {
+    "Test": "Setup.ps1 Uninstall exit=0",
+    "Passed": true
+  },
+  {
+    "Test": "Uninstall preserves edited personal settings",
+    "Passed": true
+  },
+  {
+    "Test": "Uninstall restores page: BackpackUI.html",
+    "Passed": true
+  },
+  {
+    "Test": "Uninstall restores page: Cooking.html",
+    "Passed": true
+  },
+  {
+    "Test": "Uninstall restores page: ToolTable.html",
+    "Passed": true
+  },
+  {
+    "Test": "Uninstall restores page: BrewPanel.html",
+    "Passed": true
+  },
+  {
+    "Test": "Uninstall restores page: Heater.html",
+    "Passed": true
+  },
+  {
+    "Test": "Uninstall restores page: FuelGenerator.html",
+    "Passed": true
+  },
+  {
+    "Test": "Uninstall restores page: RatCage.html",
+    "Passed": true
+  },
+  {
+    "Test": "Uninstall restores page: Compressor.html",
+    "Passed": true
+  },
+  {
+    "Test": "Uninstall restores page: Shredder.html",
+    "Passed": true
+  },
+  {
+    "Test": "Uninstall restores page: TradeUI.html",
+    "Passed": true
+  },
+  {
+    "Test": "Uninstall removes navigation plugin",
+    "Passed": true
+  },
+  {
+    "Test": "Setup.ps1 Install exit=0",
+    "Passed": true
+  },
+  {
+    "Test": "Upgrade preserves existing settings",
+    "Passed": true
+  },
+  {
+    "Test": "Setup.ps1 Uninstall exit=0",
+    "Passed": true
+  },
+  {
+    "Test": "Upgrade rollback restores BaseButler.NativeCompatibility.dll",
+    "Passed": true
+  },
+  {
+    "Test": "Upgrade rollback restores BaseButler.dll",
+    "Passed": true
+  },
+  {
+    "Test": "Upgrade rollback restores BaseButler.HomeAccess.dll",
+    "Passed": true
+  },
+  {
+    "Test": "Setup.ps1 Install exit=1",
+    "Passed": true
+  },
+  {
+    "Test": "Corrupt package blocked before installation",
+    "Passed": true
+  },
+  {
+    "Test": "Setup.ps1 Install exit=1",
+    "Passed": true
+  },
+  {
+    "Test": "Unsupported UI blocks before binary changes",
+    "Passed": true
+  }
+]
