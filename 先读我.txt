@@ -3,6 +3,7 @@
 适配 Steam Windows x64，游戏 **1.1.18599 / Unity 6000.2.7f2**。原始 BaseButler 作者 lingxiangtingsheng，整合维护 lingbaicat。
 
 ## 三步安装
+0. 推荐卸载游戏，删除游戏目录后重新安装，可能会有未知bug
 1. 完整退出游戏，将 ZIP 内全部文件解压到 `SurvivalLog.exe` 所在目录，不要在压缩包内运行。
 2. 双击 `Install.cmd`，确认显示安装成功。保留 `HomeButler-2.0.0-Package` 文件夹，它保存卸载备份。
 3. 使用 `Launch.cmd` 启动。首次启动会在本机生成 IL2CPP 接口，可能需要几分钟；包内已提供所需离线组件，无需安装 .NET SDK。
