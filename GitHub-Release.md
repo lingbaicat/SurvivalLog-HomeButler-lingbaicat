@@ -20,4 +20,6 @@
 
 新装关闭独立日志控制台、保留文件日志；升级保留既有配置。反馈请附游戏版本、复现步骤和 LogOutput.log，可通过 ViewLog.cmd 打开。
 
+**升级用户注意：**若游戏目录保留旧版 `BepInEx/config/BepInEx.cfg`，日志控制台可能仍会出现，这是旧开关被保留，并非安装失败。需要隐藏时，先退出游戏，在该文件的 `[Logging.Console]` 段将 `Enabled` 改为 `false`，保留 `[Logging.Disk]` 段的 `Enabled = true`，保存后重启。此设置不影响安装/检查/启动脚本自身的命令窗口。
+
 原作作者 lingxiangtingsheng；整合维护 lingbaicat。沿用原授权与第三方许可，详情见包内文档。

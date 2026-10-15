@@ -3,7 +3,6 @@
 适配 Steam Windows x64，游戏 **1.1.18599 / Unity 6000.2.7f2**。原始 BaseButler 作者 lingxiangtingsheng，整合维护 lingbaicat。
 
 ## 三步安装
-0. 推荐卸载游戏，删除游戏目录后重新安装，可能会有未知bug
 1. 完整退出游戏，将 ZIP 内全部文件解压到 `SurvivalLog.exe` 所在目录，不要在压缩包内运行。
 2. 双击 `Install.cmd`，确认显示安装成功。保留 `HomeButler-2.0.0-Package` 文件夹，它保存卸载备份。
 3. 使用 `Launch.cmd` 启动。首次启动会在本机生成 IL2CPP 接口，可能需要几分钟；包内已提供所需离线组件，无需安装 .NET SDK。
@@ -21,6 +20,14 @@
 退出游戏后完整解压本版、运行 Install.cmd。支持包内清单列出的旧版 DLL，包括已知 1.0.0 / 1.0.1 / 1.1.0 / 1.2.3 组合及容器编辑 1.0.0、1.1.0、1.1.1；未知改版或重复 DLL 会拒绝覆盖。安装器不删除个人配置和名称数据。
 
 如果之前启用了安全模式，先在对应旧包中运行 RestoreMods.cmd。升级后只使用本版根目录入口，不要运行旧包卸载器。保留旧包文件夹直到确认不再需要回滚。
+
+### 升级后仍出现游戏日志控制台
+
+这是保留旧配置的结果：本版只在没有 `BepInEx/config/BepInEx.cfg` 的全新安装中默认关闭日志控制台。旧版文件仍在时，安装/升级不会自动覆盖原来的控制台开关；因此升级后仍可能弹出日志窗口。
+
+如需关闭，请先退出游戏，用记事本打开游戏目录下的 `BepInEx/config/BepInEx.cfg`，找到 `[Logging.Console]` 段，将该段的 `Enabled = true` 改为 `Enabled = false`。保留 `[Logging.Disk]` 段的 `Enabled = true`，保存后重新启动游戏。注意只修改指定段落，不要把其他段的 Enabled 一起改掉。
+
+这里关闭的是随游戏运行的 BepInEx 日志控制台。Install.cmd、Check.cmd、Launch.cmd 自身执行时仍会出现命令窗口，这是正常的。之后可用 ViewLog.cmd 打开日志文件。
 
 ## 入口文件
 | 文件 | 用途 |

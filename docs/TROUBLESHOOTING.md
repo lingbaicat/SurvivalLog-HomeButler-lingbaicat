@@ -21,6 +21,14 @@
 
 如果之前启用了安全模式，先在对应旧包中运行 RestoreMods.cmd。升级后只使用本版根目录入口，不要运行旧包卸载器。保留旧包文件夹直到确认不再需要回滚。
 
+### 升级后仍出现游戏日志控制台
+
+这是保留旧配置的结果：本版只在没有 `BepInEx/config/BepInEx.cfg` 的全新安装中默认关闭日志控制台。旧版文件仍在时，安装/升级不会自动覆盖原来的控制台开关；因此升级后仍可能弹出日志窗口。
+
+如需关闭，请先退出游戏，用记事本打开游戏目录下的 `BepInEx/config/BepInEx.cfg`，找到 `[Logging.Console]` 段，将该段的 `Enabled = true` 改为 `Enabled = false`。保留 `[Logging.Disk]` 段的 `Enabled = true`，保存后重新启动游戏。注意只修改指定段落，不要把其他段的 Enabled 一起改掉。
+
+这里关闭的是随游戏运行的 BepInEx 日志控制台。Install.cmd、Check.cmd、Launch.cmd 自身执行时仍会出现命令窗口，这是正常的。之后可用 ViewLog.cmd 打开日志文件。
+
 ## 入口文件
 | 文件 | 用途 |
 | --- | --- |
